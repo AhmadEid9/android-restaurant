@@ -1,6 +1,4 @@
-package com.example.mainapplication.Models;
-
-import java.util.ArrayList;
+package com.example.restaurant.Models;
 
 public class Restaurant {
     private String name;

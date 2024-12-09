@@ -1,20 +1,15 @@
-package com.example.mainapplication;
+package com.example.restaurant;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.mainapplication.Models.Restaurant;
-import com.example.mainapplication.Models.TypeService;
+import com.example.restaurant.Models.Restaurant;
+import com.example.restaurant.Models.TypeService;
 
 import java.util.ArrayList;
 
@@ -28,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         nameInput = findViewById(R.id.name);
         addressInput = findViewById(R.id.address);
         radioType = findViewById(R.id.type_group);
