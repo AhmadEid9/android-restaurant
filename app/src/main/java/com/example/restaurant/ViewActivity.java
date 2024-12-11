@@ -9,13 +9,15 @@ import com.example.restaurant.Models.Restaurant;
 
 public class ViewActivity extends AppCompatActivity {
 
-    public RestaurantAdapter listeViewAdapter;
+    public RestaurantAdapter listViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
-        listeViewAdapter = new RestaurantAdapter(this, MainActivity.resList);
-        ((ListView)findViewById(R.id.lv_listview)).setAdapter(listeViewAdapter);
+        listViewAdapter = new RestaurantAdapter(this, MainActivity.resList);
+        ((ListView)findViewById(R.id.lv_listview)).setAdapter(listViewAdapter);
+
+
     }
 }

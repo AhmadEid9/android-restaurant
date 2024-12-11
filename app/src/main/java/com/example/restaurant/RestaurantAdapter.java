@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,7 +24,7 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
     @NonNull
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_1, parent);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.restaurant, parent, false);
         }
 
         Restaurant restaurant = restaurantList.get(position);
@@ -34,6 +35,17 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
             TextView phone = convertView.findViewById(R.id.phone);
             TextView website = convertView.findViewById(R.id.website);
 
+            ImageView tableIcon = convertView.findViewById(R.id.table_icon);
+            ImageView takeawayIcon = convertView.findViewById(R.id.takeaway_icon);
+            ImageView deliveryIcon = convertView.findViewById(R.id.delivery_icon);
+
+            if (restaurant.getType().toString().equals("Table")){
+                tableIcon.setImageResource(R.drawable.table_checked);
+            } else if (restaurant.getType().toString().equals("Delivery")){
+                deliveryIcon.setImageResource(R.drawable.delivery_checked);
+            } else {
+                takeawayIcon.setImageResource(R.drawable.takeaway_checked);
+            }
 
             name.setText(restaurant.getName());
             address.setText(restaurant.getAddress());

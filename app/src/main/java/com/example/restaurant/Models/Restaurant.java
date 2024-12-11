@@ -13,8 +13,6 @@ public class Restaurant {
         this.website = website;
         this.type = type;
     }
-
-
     @Override
     public String toString() {
         return "Restaurant{" +
@@ -25,43 +23,33 @@ public class Restaurant {
                 ", type=" + type +
                 '}';
     }
-
     public String getName() {
         return name;
     }
-
     public String getAddress() {
         return address;
     }
-
     public String getPhone() {
         return phone;
     }
-
     public String getWebsite() {
         return website;
     }
-
     public TypeService getType() {
         return type;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public void setAddress(String address) {
         this.address = address;
     }
-
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
     public void setWebsite(String website) {
         this.website = website;
     }
-
     public void setType(TypeService type) {
         this.type = type;
     }

@@ -37,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.clear_button).setOnClickListener(view -> eraseData());
 
         resList = new ArrayList<>();
+        Restaurant mockData1 = new Restaurant("Mcdo", "Tripoli", "06123456", "test.com", TypeService.Table);
+        Restaurant mockData2 = new Restaurant("KFC", "Tripoli", "06123456", "test.com", TypeService.Delivery);
+        Restaurant mockData3 = new Restaurant("Doner", "Tripoli", "06123456", "test.com", TypeService.TakeAway);
+        resList.add(mockData1);
+        resList.add(mockData2);
+        resList.add(mockData3);
         resAddapter = new RestaurantAdapter(this, resList);
 //        ((ListView)findViewById(R.id.res_list)).setAdapter(resAdapter);
     }
@@ -47,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(this,ViewActivity.class);
+        Intent intent = new Intent(this,    ViewActivity.class);
         startActivity(intent);
         return true;
     }
@@ -68,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
         Restaurant res = new Restaurant(name, address, phone, website, type);
         resList.add(res);
         eraseData();
-        resAddapter.notifyDataSetChanged();
     }
     public void eraseData(){
         nameInput.setText("");
