@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -126,6 +127,54 @@
             android:adjustViewBounds="true"
             android:scaleType="fitStart" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:gravity="center"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/callButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:width="32dp"
+            android:height="32dp"
+            android:drawableStart="@drawable/call"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/call_button"
+            android:textColor="#00FF00"
+            android:textSize="16sp"
+            app:icon="@drawable/call"
+            app:iconTint="#6CE81A" />
+
+        <Button
+            android:id="@+id/deleteButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:width="32dp"
+            android:height="32dp"
+            android:drawableStart="@drawable/delete"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/delete_button"
+            android:textColor="#FF0000"
+            android:textSize="16sp"
+            app:icon="@drawable/delete"
+            app:iconTint="#DF0A0A" />
     </LinearLayout>
 
 

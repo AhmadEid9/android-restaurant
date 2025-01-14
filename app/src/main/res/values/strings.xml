@@ -9,7 +9,7 @@
     <string name="first_name_hint">Enter the restaurant\'s name:</string>
     <string name="address_hint">Enter your Address:</string>
     <string name="phone_hint">Enter your Phone Number:</string>
-    <string name="website_hint">Website\' link:</string>
+    <string name="website_hint">Website\'s link:</string>
 
     <string name="submit_button_text">Submit</string>
     <string name="clear_button_text">Clear</string>
@@ -27,6 +27,9 @@
     <string name="table_description">Table Orders</string>
     <string name="delivery_description">Delivery Orders</string>
     <string name="takeaway_description">Take Away Orders</string>
+
+    <string name="call_button">Call</string>
+    <string name="delete_button">Delete</string>
 
 
 </resources>

@@ -1,5 +1,7 @@
 package com.example.restaurant.Models;
 
+import androidx.annotation.NonNull;
+
 public class Restaurant {
     private String name;
     private String address;
@@ -13,6 +15,7 @@ public class Restaurant {
         this.website = website;
         this.type = type;
     }
+    @NonNull
     @Override
     public String toString() {
         return "Restaurant{" +
