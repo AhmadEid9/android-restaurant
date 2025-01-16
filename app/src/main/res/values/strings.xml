@@ -21,8 +21,8 @@
     <string name="radio_option_delivery">Delivery</string>
     <string name="radio_option_table">Table</string>
 
-    <string name="actionbar_add">Add</string>
     <string name="actionbar_show">Show</string>
+    <string name="action_button_update">Update</string>
 
     <string name="table_description">Table Orders</string>
     <string name="delivery_description">Delivery Orders</string>

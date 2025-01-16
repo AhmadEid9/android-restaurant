@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/restaurant_list"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -85,8 +86,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:autoLink="web"
-            android:linksClickable="true"
             />
     </LinearLayout>
 
@@ -105,7 +104,10 @@
             android:src="@drawable/delivery_unchecked"
             android:contentDescription="@string/delivery_description"
             android:adjustViewBounds="true"
-            android:scaleType="fitStart" />
+            android:scaleType="fitStart"
+            android:focusable="false"
+            android:clickable="false"
+            />
 
         <ImageView
             android:id="@+id/table_icon"
@@ -115,7 +117,10 @@
             android:src="@drawable/table_unchecked"
             android:contentDescription="@string/table_description"
             android:adjustViewBounds="true"
-            android:scaleType="fitStart" />
+            android:scaleType="fitStart"
+            android:focusable="false"
+            android:clickable="false"
+            />
 
         <ImageView
             android:id="@+id/takeaway_icon"
@@ -125,7 +130,10 @@
             android:src="@drawable/takeaway_unchecked"
             android:contentDescription="@string/takeaway_description"
             android:adjustViewBounds="true"
-            android:scaleType="fitStart" />
+            android:scaleType="fitStart"
+            android:focusable="false"
+            android:clickable="false"
+            />
 
     </LinearLayout>
 
@@ -155,7 +163,11 @@
             android:textColor="#00FF00"
             android:textSize="16sp"
             app:icon="@drawable/call"
-            app:iconTint="#6CE81A" />
+            android:focusable="false"
+            app:iconTint="#6CE81A"
+            android:clickable="false"
+
+            />
 
         <Button
             android:id="@+id/deleteButton"
@@ -174,8 +186,11 @@
             android:textColor="#FF0000"
             android:textSize="16sp"
             app:icon="@drawable/delete"
-            app:iconTint="#DF0A0A" />
-    </LinearLayout>
+            app:iconTint="#DF0A0A"
+            android:focusable="false"
+            android:clickable="false"
 
+            />
+    </LinearLayout>
 
 </LinearLayout>

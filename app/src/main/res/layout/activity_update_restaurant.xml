@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/update_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="0px"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:text="@string/first_name"
+            />
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="0px"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:hint="@string/first_name_hint"
+            android:autofillHints="name"
+            android:inputType="text"
+            tools:ignore="LabelFor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="0px"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:text="@string/address"
+            />
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="0px"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:hint="@string/address_hint"
+            android:autofillHints="name"
+            android:inputType="text"
+            tools:ignore="LabelFor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="0px"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:text="@string/phone_number"
+            />
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="0px"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:hint="@string/phone_hint"
+            android:autofillHints="name"
+            android:inputType="text"
+            tools:ignore="LabelFor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="0px"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:text="@string/website_hint"
+            />
+        <EditText
+            android:id="@+id/website"
+            android:layout_width="0px"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:hint="@string/website_hint"
+            android:autofillHints="name"
+            android:inputType="text"
+            tools:ignore="LabelFor" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_label"
+            />
+        <RadioGroup
+            android:id="@+id/type_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            >
+            <RadioButton
+                android:id="@+id/type_take"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/radio_option_take"/>
+            <RadioButton
+                android:id="@+id/type_delivery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/radio_option_delivery"/>
+            <RadioButton
+                android:id="@+id/type_table"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/radio_option_table"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/action_button_update"
+        />
+
+</LinearLayout>

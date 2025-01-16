@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -66,6 +67,8 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
             phone.setText(restaurant.getPhone());
             website.setText(restaurant.getWebsite());
 
+            website.setOnClickListener(v -> openWebPage(restaurant.getWebsite()));
+
             callButton.setOnClickListener(v -> makePhoneCall(restaurant.getPhone()));
 
             deleteButton.setOnClickListener(v -> deleteElement(position));
@@ -96,6 +99,14 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
                 .show();
     }
 
-
+    private void openWebPage(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+            startActivity(getContext(), intent, null);
+        } else {
+            Toast.makeText(getContext(), "No application found to open the link.", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
 
