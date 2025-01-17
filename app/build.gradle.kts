@@ -6,6 +6,10 @@ android {
     namespace = "com.example.restaurant"
     compileSdk = 34
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.restaurant"
         minSdk = 31

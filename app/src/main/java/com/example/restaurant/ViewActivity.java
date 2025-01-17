@@ -1,14 +1,12 @@
 package com.example.restaurant;
 
-import static androidx.core.content.ContextCompat.startActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.restaurant.Models.Restaurant;
 
 public class ViewActivity extends AppCompatActivity {
 
@@ -23,7 +21,11 @@ public class ViewActivity extends AppCompatActivity {
 
         restaurantListView.setAdapter(listViewAdapter);
 
-        restaurantListView.setOnItemClickListener((context, view, position, args) -> launchRestaurantUpdate(position));
+        restaurantListView.setOnItemClickListener((context, view, position, args) -> {
+            Toast.makeText(this, "position is " + position, Toast.LENGTH_LONG ).show();
+            launchRestaurantUpdate(position);
+        });
+
     }
 
     public void launchRestaurantUpdate (int position){

@@ -67,7 +67,7 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
             phone.setText(restaurant.getPhone());
             website.setText(restaurant.getWebsite());
 
-            website.setOnClickListener(v -> openWebPage(restaurant.getWebsite()));
+            website.setOnClickListener(v -> openWebPage(v.getContext(), restaurant.getWebsite()));
 
             callButton.setOnClickListener(v -> makePhoneCall(restaurant.getPhone()));
 
@@ -99,13 +99,17 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
                 .show();
     }
 
-    private void openWebPage(String url) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        if (intent.resolveActivity(getContext().getPackageManager()) != null) {
-            startActivity(getContext(), intent, null);
-        } else {
-            Toast.makeText(getContext(), "No application found to open the link.", Toast.LENGTH_SHORT).show();
+    private void openWebPage(Context context, String url) {
+        try {
+            if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                url = "http://" + url;
+            }
+
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            context.startActivity(browserIntent);
+
+        } catch (Exception e) {
+            Toast.makeText(context, "Invalid URL or cannot open browser", Toast.LENGTH_SHORT).show();
         }
     }
 }

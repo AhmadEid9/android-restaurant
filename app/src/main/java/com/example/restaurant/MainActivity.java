@@ -13,10 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant.Models.Restaurant;
 import com.example.restaurant.Models.TypeService;
+import com.example.restaurant.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private ActivityMainBinding binding;
     private EditText nameInput, addressInput, phoneInput, websiteInput;
     private RadioGroup radioType;
     public static ArrayList<Restaurant> resList;
@@ -24,13 +26,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
 
-        nameInput = findViewById(R.id.name);
-        addressInput = findViewById(R.id.address);
-        phoneInput = findViewById(R.id.phone);
-        websiteInput = findViewById(R.id.website);
-        radioType = findViewById(R.id.type_group);
+        setContentView(binding.getRoot());
+
+        nameInput = binding.name;
+        addressInput = binding.address;
+        phoneInput = binding.phone;
+        websiteInput = binding.website;
+        radioType = binding.typeGroup;
 
         if (savedInstanceState != null) {
             // Restore state
@@ -48,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-        findViewById(R.id.submit_button).setOnClickListener(this::addForm);
-        findViewById(R.id.clear_button).setOnClickListener(view -> eraseData());
+        binding.submitButton.setOnClickListener(this::addForm);
+        binding.clearButton.setOnClickListener(view -> eraseData());
 
         resList = new ArrayList<>();
         Restaurant mockData1 = new Restaurant("Mcdo", "Tripoli", "06123456", "test.com", TypeService.Table);
@@ -58,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
         resList.add(mockData1);
         resList.add(mockData2);
         resList.add(mockData3);
-//        RestaurantAdapter resAdapter = new RestaurantAdapter(this, resList);
-//        ((ListView)findViewById(R.id.res_list)).setAdapter(resAdapter);
     }
 
     @Override
@@ -88,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getTitle().toString().toLowerCase().equals("show")) {
+        if (item.getTitle().toString().equalsIgnoreCase("show")) {
             Intent intent = new Intent(this, ViewActivity.class);
             startActivity(intent);
         }
