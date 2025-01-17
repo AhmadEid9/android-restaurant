@@ -1,4 +1,4 @@
-package com.example.mainapplication.Models;
+package com.example.restaurant.Models;
 
 public enum TypeService {
     Table("Table"), Delivery("Delivery"), TakeAway("Take Away");

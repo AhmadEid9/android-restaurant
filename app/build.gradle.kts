@@ -3,11 +3,15 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mainapplication"
+    namespace = "com.example.restaurant"
     compileSdk = 34
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
-        applicationId = "com.example.mainapplication"
+        applicationId = "com.example.restaurant"
         minSdk = 31
         targetSdk = 34
         versionCode = 1
