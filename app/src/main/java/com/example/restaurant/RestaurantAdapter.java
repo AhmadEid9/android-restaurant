@@ -1,7 +1,5 @@
 package com.example.restaurant;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;

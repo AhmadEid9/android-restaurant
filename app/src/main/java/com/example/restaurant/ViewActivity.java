@@ -28,6 +28,13 @@ public class ViewActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        listViewAdapter.notifyDataSetChanged();
+    }
+
     public void launchRestaurantUpdate (int position){
         Intent intent = new Intent(this, UpdateRestaurant.class);
         intent.putExtra("position", position);
