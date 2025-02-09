@@ -17,6 +17,9 @@
         android:theme="@style/Theme.MainApplication"
         tools:targetApi="34">
         <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".UpdateRestaurant"
             android:exported="false" />
         <activity

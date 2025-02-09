@@ -30,6 +30,13 @@
 
     <string name="call_button">Call</string>
     <string name="delete_button">Delete</string>
+    <string name="actionbar_settings">Settings</string>
 
-
+    <string name="preferred_language">Language</string>
+    <string name="preferred_start_page">Start Page</string>
+    <string name="english">English</string>
+    <string name="french">Francais</string>
+    <string name="adding_page">Adding Page</string>
+    <string name="showing_page">Showing Page</string>
+    <string name="add_label">Add</string>
 </resources>

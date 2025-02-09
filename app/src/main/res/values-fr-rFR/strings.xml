@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Restaurant</string>
+
+    <string name="first_name">Nom du restaurant :</string>
+    <string name="address">Adresse :</string>
+    <string name="phone_number">Numéro de téléphone :</string>
+    <string name="website">Site web :</string>
+
+    <string name="first_name_hint">Entrez le nom du restaurant :</string>
+    <string name="address_hint">Entrez votre adresse :</string>
+    <string name="phone_hint">Entrez votre numéro de téléphone :</string>
+    <string name="website_hint">Lien du site web :</string>
+
+    <string name="submit_button_text">Soumettre</string>
+    <string name="clear_button_text">Effacer</string>
+
+    <string name="success_message">Opération réussie</string>
+
+    <string name="radio_label">Type</string>
+    <string name="radio_option_take">À emporter</string>
+    <string name="radio_option_delivery">Livraison</string>
+    <string name="radio_option_table">Table</string>
+
+    <string name="actionbar_show">Afficher</string>
+    <string name="action_button_update">Mettre à jour</string>
+
+    <string name="table_description">Commandes sur table</string>
+    <string name="delivery_description">Commandes en livraison</string>
+    <string name="takeaway_description">Commandes à emporter</string>
+
+    <string name="call_button">Appeler</string>
+    <string name="delete_button">Supprimer</string>
+    <string name="actionbar_settings">Parameter</string>
+    <string name="english">English</string>
+    <string name="french">Francais</string>
+    <string name="adding_page">Page d\'ajout</string>
+    <string name="showing_page">page d\'affichage</string>
+
+    <string name="preferred_language">Language</string>
+    <string name="preferred_start_page">Page de Demarrage</string>
+    <string name="add_label">Ajout
+        er</string>
+</resources>

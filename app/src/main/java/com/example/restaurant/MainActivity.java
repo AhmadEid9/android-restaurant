@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant.Models.Restaurant;
+import com.example.restaurant.Models.RestaurantDBHelper;
 import com.example.restaurant.Models.TypeService;
 import com.example.restaurant.databinding.ActivityMainBinding;
 
@@ -23,12 +24,24 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup radioType;
     public static ArrayList<Restaurant> resList;
 
+    public static RestaurantDBHelper restaurantDBHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 
+        restaurantDBHelper = new RestaurantDBHelper(this);
+
         setContentView(binding.getRoot());
+
+        resList = new ArrayList<Restaurant>();
+        restaurantDBHelper.getRestaurantData(resList);
+
+        if (SettingPref.getStartPage(this).equals(getString(R.string.showing_page))){
+            Intent intent = new Intent(this, ViewActivity.class);
+            startActivity(intent);
+        }
 
         nameInput = binding.name;
         addressInput = binding.address;
@@ -54,14 +67,6 @@ public class MainActivity extends AppCompatActivity {
         }
         binding.submitButton.setOnClickListener(this::addForm);
         binding.clearButton.setOnClickListener(view -> eraseData());
-
-        resList = new ArrayList<>();
-        Restaurant mockData1 = new Restaurant("Mcdo", "Tripoli", "06123456", "test.com", TypeService.Table);
-        Restaurant mockData2 = new Restaurant("KFC", "Tripoli", "06123456", "test.com", TypeService.Delivery);
-        Restaurant mockData3 = new Restaurant("Doner", "Tripoli", "06123456", "test.com", TypeService.TakeAway);
-        resList.add(mockData1);
-        resList.add(mockData2);
-        resList.add(mockData3);
     }
 
     @Override
@@ -90,14 +95,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getTitle().toString().equalsIgnoreCase("show")) {
+        if (item.getTitle().toString().equalsIgnoreCase(getString(R.string.actionbar_show))) {
             Intent intent = new Intent(this, ViewActivity.class);
+            startActivity(intent);
+        }
+        if (item.getTitle().toString().equalsIgnoreCase(getString(R.string.actionbar_settings))) {
+            Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
         }
         return true;
     }
 
     public void addForm(View view){
+        long id;
+
         String name = nameInput.getText().toString();
         String address = addressInput.getText().toString();
         String phone = phoneInput.getText().toString();
@@ -111,6 +122,9 @@ public class MainActivity extends AppCompatActivity {
             type = TypeService.Delivery;
         }
         Restaurant res = new Restaurant(name, address, phone, website, type);
+
+        id = restaurantDBHelper.insertRestaurant(res);
+        res.setId(id);
         resList.add(res);
         eraseData();
         Toast.makeText(this,"Restaurant Added to the list", Toast.LENGTH_LONG).show();

@@ -3,12 +3,18 @@ package com.example.restaurant.Models;
 import androidx.annotation.NonNull;
 
 public class Restaurant {
-    private String name;
-    private String address;
-    private String phone;
-    private String website;
+    long id;
+    private String name, address, phone, website;
     private TypeService type;
     public Restaurant(String name, String address, String phone, String website, TypeService type) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.website = website;
+        this.type = type;
+    }
+    public Restaurant(String name, String address, String phone, String website, TypeService type, long id) {
+        this.id = id;
         this.name = name;
         this.address = address;
         this.phone = phone;
@@ -55,5 +61,13 @@ public class Restaurant {
     }
     public void setType(TypeService type) {
         this.type = type;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

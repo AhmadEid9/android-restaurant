@@ -21,14 +21,17 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.restaurant.Models.Restaurant;
+import com.example.restaurant.Models.RestaurantDBHelper;
 
 import java.util.ArrayList;
 
 public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
     private ArrayList<Restaurant> restaurantList;
+    private RestaurantDBHelper dbHelper;
     public RestaurantAdapter(Context context, ArrayList<Restaurant> resList){
         super(context, android.R.layout.simple_list_item_1, resList);
         this.restaurantList = resList;
+        this.dbHelper = new RestaurantDBHelper(context);
     }
 
     @NonNull
@@ -54,10 +57,16 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
 
             if (restaurant.getType().toString().equals("Table")){
                 tableIcon.setImageResource(R.drawable.table_checked);
+                deliveryIcon.setImageResource(R.drawable.delivery_unchecked);
+                takeawayIcon.setImageResource(R.drawable.takeaway_unchecked);
             } else if (restaurant.getType().toString().equals("Delivery")){
                 deliveryIcon.setImageResource(R.drawable.delivery_checked);
+                tableIcon.setImageResource(R.drawable.table_unchecked);
+                takeawayIcon.setImageResource(R.drawable.takeaway_unchecked);
             } else {
                 takeawayIcon.setImageResource(R.drawable.takeaway_checked);
+                deliveryIcon.setImageResource(R.drawable.delivery_unchecked);
+                tableIcon.setImageResource(R.drawable.table_unchecked);
             }
 
             name.setText(restaurant.getName());
@@ -69,7 +78,7 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
 
             callButton.setOnClickListener(v -> makePhoneCall(restaurant.getPhone()));
 
-            deleteButton.setOnClickListener(v -> deleteElement(position));
+            deleteButton.setOnClickListener(v -> deleteElement(position, dbHelper));
         }
 
         return convertView;
@@ -85,11 +94,12 @@ public class RestaurantAdapter extends ArrayAdapter<Restaurant> {
         }
     }
 
-    private void deleteElement(int position){
+    private void deleteElement(int position, RestaurantDBHelper db){
         new AlertDialog.Builder(getContext())
                 .setTitle("Delete")
                 .setMessage("Are you sure you want to delete this phone number?")
                 .setPositiveButton("Yes", (dialog, which) -> {
+                    db.deleteRestaurant(restaurantList.get(position).getId());
                     restaurantList.remove(position);
                     notifyDataSetChanged();
                 })

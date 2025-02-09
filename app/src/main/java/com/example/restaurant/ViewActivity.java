@@ -3,6 +3,8 @@ package com.example.restaurant;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -31,7 +33,6 @@ public class ViewActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         listViewAdapter.notifyDataSetChanged();
     }
 
@@ -39,5 +40,17 @@ public class ViewActivity extends AppCompatActivity {
         Intent intent = new Intent(this, UpdateRestaurant.class);
         intent.putExtra("position", position);
         startActivity(intent);
+    }
+    public boolean onCreateOptionsMenu (Menu menu){
+        getMenuInflater().inflate(R.menu.restaurant_view_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getTitle().toString().equalsIgnoreCase(getString(R.string.add_label))) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+        return true;
     }
 }
