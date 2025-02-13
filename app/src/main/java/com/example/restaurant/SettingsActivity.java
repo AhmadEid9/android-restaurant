@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;;
 
 public class SettingsActivity extends AppCompatActivity {
 //    SettingsActivityBinding binding;
-    RadioGroup pageGroup;
+    RadioGroup pageGroup, langGroup;
     RadioButton engLanguageRB, frLanguageRB, addPageRB, showPageRB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +23,17 @@ public class SettingsActivity extends AppCompatActivity {
         showPageRB = findViewById(R.id.page_show);
 
         pageGroup = findViewById(R.id.page_group);
+        langGroup = findViewById(R.id.language_group);
         if (SettingPref.getStartPage(this).equals(getString(R.string.showing_page))){
             pageGroup.check(R.id.page_show);
         } else {
             pageGroup.check(R.id.page_add);
-            SettingPref.setStartPage(this, getString(R.string.adding_page));
+        }
 
+        if (SettingPref.getLanguage(this).equals("en-US")){
+            langGroup.check(R.id.language_eng);
+        } else {
+            langGroup.check(R.id.language_fr);
         }
 
         engLanguageRB.setOnClickListener(v -> setLanguagePref("en-US"));
