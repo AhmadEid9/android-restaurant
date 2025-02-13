@@ -3,6 +3,9 @@ package com.example.restaurant;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.os.LocaleListCompat;
+
 import java.util.Locale;
 
 public class SettingPref {
@@ -26,11 +29,15 @@ public class SettingPref {
         return context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE).getString("language", "fr-FR");
     }
 
-    public static void setLanguage(Context context, String lang){
-        if (lang.equals("en-US")){
-        }
+    public static void setLanguage(Context context, String lang) {
+        LocaleListCompat appLocale = LocaleListCompat.forLanguageTags(lang);
+        AppCompatDelegate.setApplicationLocales(appLocale);
+
+
         SharedPreferences.Editor edit = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE).edit();
-        edit.putString("startPage", lang);
-        edit.commit();
+        edit.putString("language", lang);
+        edit.apply();
     }
+
+
 }
